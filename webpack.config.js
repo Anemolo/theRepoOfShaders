@@ -6,7 +6,7 @@ module.exports = {
   entry: { app: "./src/index.js" },
   devtool: "inline-source-map",
   devServer: {
-    contentBase: "./dist",
+    contentBase: "./build",
     hot: true
   },
   module: {
@@ -26,6 +26,6 @@ module.exports = {
   ],
   output: {
     filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, "build")
   }
 };
