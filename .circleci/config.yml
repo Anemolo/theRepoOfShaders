@@ -1,0 +1,26 @@
+defaults: &defaults
+  docker:
+    - image: circleci/node:10.13
+  working_directory: ~/tmp/circlci-now
+
+version: 2
+
+jobs:
+  deploy:
+    steps:
+      - run:
+        name: Install Now CLI
+        command: sudo npm install --global --unsafe-perm now
+      - deploy:
+        name: Deploy and set Alias
+        command: now --token $ZEIT_TOKEN --loacl-config .now
+    development:
+      branch: master
+      commands:
+        - now -t ${NOW_TOKEN}
+        - now -t ${NOW_TOKEN} alias foo-dev
+    production:
+      branch: production
+      commands:
+        - now -t ${NOW_TOKEN}
+        - now -t ${NOW_TOKEN} alias foo
