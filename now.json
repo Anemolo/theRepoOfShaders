@@ -1,0 +1,14 @@
+{
+  "name": "The book of repos",
+  "type": "static",
+  "forwardNpm": true,
+  "alias": "RepoOfShaders.now.sh",
+  "static": {
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
